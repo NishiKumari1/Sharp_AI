@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "manage.py"
+      }
+    ],
+    "functions": [
+      "manage.py"
+    ],
+    "static": [
+      {
+        "src": "static/css/(.*)",
+        "dest": "static/css/$1"
+      },
+      {
+        "src": "static/js/(.*)",
+        "dest": "static/js/$1"
+      },
+      {
+        "src": "static/media/(.*)",
+        "dest": "static/media/$1"
+      }
+    ]
+  }
