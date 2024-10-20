@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/forum.css' %}">
+<link rel="stylesheet" href="{% static 'css/loader.css' %}">
+
+<div class="section-img">
+    <div class="step-img">
+        <img src="{%static 'media/spam_img1.png'%}" alt="">
+        <div class="img-content">
+            <p>STEP 1- ENTER YOUR TEXT</p>
+        </div>
+    </div>
+
+    <div class="step-small-img">
+        <img src="{%static 'media/Arrow.png'%}" alt="">  
+    </div>
+        
+    <div class="step-img">
+        <img src="{%static 'media/techquiz2.png'%}" alt="">
+        <div class="img-content">
+            <p>STEP 2- CLICK ON SUBMIT</p>
+        </div>  
+    </div>
+
+    <div class="step-small-img">
+        <img src="{%static 'media/Arrow.png'%}" alt="">
+    </div>
+
+    <div class="step-img">
+        <img src="{%static 'media/spam_img3.png'%}" alt="">
+        <div class="img-content">
+            <p>STEP 3- RESULT GENERATED</p>
+        </div> 
+    </div>
+</div>
+
+<div id="starting-area">
+    <h2 class="heading">NOW LET'S initiate the process
+    </h2>
+</div>
+
+<form method="get" class="form-container" onsubmit="showLoadingPopup()">
+    <div class="field">
+        <textarea rows="10" class="form-control" name="text" value="{{text}}" placeholder="Enter your text...">
+        </textarea>
+    </div>
+    <button id="submit-button" class="btn btn-success" type="submit">Submit</button>
+
+    <!-- pop-up for loading -->
+    <div id="loading-overlay">
+        <div id="loading-modal">
+            <div class="waviy">
+                <span style="--i:1;color: #273c75;font-size: 70px;font-weight: 500;">c</span>
+                <span style="--i:2;color: #273c75;">s</span>
+                <span style="--i:3;color: #273c75;">h</span>
+                <span style="--i:4;color: #273c75;">a</span>
+                <span style="--i:5;color: #273c75;">r</span>
+                <span style="--i:6;color: #273c75;">p</span>
+                <span style="--i:7;color: rgb(211, 58, 3);font-size: 70px;">a</span>
+                <span style="--i:8;color:rgb(211, 58, 3);font-size: 70px;">i</span>
+            </div>
+        </div>
+    </div>
+   
+    <div class="field-result" name="predicted_label">
+        {% if predicted_label == 'NSFW' %}
+            <p class="para-SFW">{{predicted_label}}</p>
+        {% elif predicted_label == 'SFW' %}
+            <p class="para-NSFW">{{predicted_label}}</p>
+        {% endif %}  
+    </div>
+</form>
+
+<script src="{% static 'js/loader.js' %}"></script>
+
+{% endblock %}

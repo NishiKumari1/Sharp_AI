@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/homePage.css' %}">
+
+<div class="starting-container">
+    <div class="starting-para">
+        <p class="heading">Welcome to SharpAI Web Platform</p>
+        <img src="{%static 'media/home-ai.png'%}" alt="load">
+    </div> 
+</div>
+
+<div id="starting-area">
+    <button id="starting-button" onclick="scrollToRange()">PICK NOW</button>
+</div>
+
+<div class="container">
+    <div class="content">
+        <h1>Video Summarizer</h1>
+        <h5 style="margin-top: 20px;">The Perfect Solution to Save Time</h5>
+        <p>If you're short on time and can't watch lengthy videos, our solution is perfect for you. Just copy the YouTube video link and paste it into the designated area. Like magic, a brief summary will be generated for you to read and take notes. Our technology efficiently condenses video transcripts, freeing up your valuable time.</p>
+    </div>
+    <div class="img">
+        <img src="{%static 'media/video.png'%}" alt="">
+    </div>
+</div>
+
+<div class="container">
+    <div class="img">
+        <img src="{%static 'media/techquiz3.png'%}" alt="">
+    </div>
+    <div class="content">
+        <h1>Quiz Generator</h1>
+        <p>The Perfect Solution to Save Time</p>
+        <p>If you're short on time and can't watch lengthy videos, our solution is perfect for you. Just copy the YouTube video link and paste it into the designated area. Like magic, a brief summary will be generated for you to read and take notes. Our technology efficiently condenses video transcripts, freeing up your valuable time.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <h1>Spam Detector</h1>
+        <h5 style="margin-top: 20px;">The Perfect Solution to Save Time</h5>
+        <p>If you're short on time and can't watch lengthy videos, our solution is perfect for you. Just copy the YouTube video link and paste it into the designated area. Like magic, a brief summary will be generated for you to read and take notes. Our technology efficiently condenses video transcripts, freeing up your valuable time.</p>
+    </div>
+    <div class="img">
+        <img src="{%static 'media/spam_img3.png'%}" alt="">
+    </div>
+</div>
+
+<div class="container">
+    <div class="img">
+        <img src="{%static 'media/techquiz3.png'%}" alt="">
+    </div>
+    <div class="content">
+        <h1>Fourm Reply</h1>
+        <p>The Perfect Solution to Save Time</p>
+        <p>If you're short on time and can't watch lengthy videos, our solution is perfect for you. Just copy the YouTube video link and paste it into the designated area. Like magic, a brief summary will be generated for you to read and take notes. Our technology efficiently condenses video transcripts, freeing up your valuable time.</p>
+    </div>
+</div>
+
+{% endblock %}

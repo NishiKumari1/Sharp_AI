@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/forumReply.css' %}">
+<link rel="stylesheet" href="{% static 'css/loader.css' %}">
+<!-- this is for CK editor -->
+<script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script>
+
+<div class="main">
+    <!-- this is for procedure to understand the working of tool -->
+    <div class="section-img">
+        <div class="step-img">
+            <img src="{%static 'media/ForumReplyImg1.png'%}" alt="">
+            <div class="img-content">
+                <p>STEP 1- SELECT CATEGORIES</p>
+            </div>
+        </div>
+
+        <div class="step-small-img">
+            <img src="{%static 'media/Arrow.png'%}" alt="">
+        </div>
+
+        <div class="step-img">
+            <img src="{%static 'media/ForumReplyImg2.png'%}" alt="">
+            <div class="img-content">
+                <p>STEP 3- GIVE DETAILS</p>
+            </div>
+        </div>
+
+        <div class="step-small-img">
+            <img src="{%static 'media/Arrow.png'%}" alt="">
+        </div>
+
+        <div class="step-img">
+            <img src="{%static 'media/ForumReplyImg3.png'%}" alt="">
+            <div class="img-content">
+                <p>STEP 3-RESULT GENERATED</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="starting-area">
+        <h2 class="heading">NOW LET'S initiate the process
+        </h2>
+    </div>
+
+    <!-- ASk questions and get the reply  -->
+    <div class=" form-container row">
+        <div class="col-sm-6 leftSide">
+            <form action="{% url 'forum' %}" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <label for="category" class="Text">Category</label>
+                    <div class="category-dropdown">
+                        <select id="category" class="form-control" name="category" aria-valuetext="{{category}}">
+                            <!-- Add your categories -->
+                            <option value="Select" selected disabled>Select a Category</option>
+                            <option value="Angular">Angular</option>
+                            <option value="Asp.Net">Asp.Net</option>
+                            <option value="ADO.NET">ADO.NET</option>
+                            <option value="AI">AI</option>
+                            <option value="AJAX">AJAX</option>
+                            <option value="AWS">AWS</option>
+                            <option value="Azure">Azure</option>
+                            <option value="Blazor">Blazor</option>
+                            <option value="Bootstrap">Bootstrap</option>
+                            <option value="C#">C#</option>
+                            <option value="ChatGPT">ChatGPT</option>
+                            <option value="Cloud">Cloud</option>
+                            <option value="Cryptography">Cryptography</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                            <option value="Database & DBA">Database & DBA</option>
+                            <option value="DevOps">DevOps</option>
+                            <option value="F#">F#</option>
+                            <option value="Flutter">Flutter</option>
+                            <option value="Generative AI">Generative AI</option>
+                            <option value="GO">GO</option>
+                            <option value="Google Cloud">Google Cloud</option>
+                            <option value="HTML 5">HTML 5</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="JQuery">JQuery</option>
+                            <option value="JSON">JSON</option>
+                            <option value="Kotlin">Kotlin</option>
+                            <option value="Langchain">Langchain</option>
+                            <option value="LINQ">LINQ</option>
+                            <option value="Machine Learning">Machine Learning</option>
+                            <option value="MongoDB">MongoDB</option>
+                            <option value="MySQL">MySQL</option>
+                            <option value="NEAR">NEAR</option>
+                            <option value=".NET">.NET</option>
+                            <option value="Oracle">Oracle</option>
+                            <option value="php">php</option>
+                            <option value="Polygon">Polygon</option>
+                            <option value="PostgreSQL">PostgreSQL</option>
+                            <option value="Power BI">Power BI</option>
+                            <option value="Python">Python</option>
+                            <option value="Q#">Q#</option>
+                            <option value="R">R</option>
+                            <option value="React">React</option>
+                            <option value="RUST">RUST</option>
+                            <option value="SQL">SQL</option>
+                            <option value="SQL Server">SQL Server</option>
+                            <option value="Swift">Swift</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Web3">Web3</option>
+                            <option value="Xamarin">Xamarin</option>
+                            <option value="XAML">XAML</option>
+                            <option value="XSharp">XSharp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="subject" class="Text">Subject</label>
+                    <input type="text" id="subject" class="form-control" name="Subject" value="{{subject}}"
+                        placeholder="[What is your topic? Be specific. Keep it brief]">
+                </div>
+
+                <div class="field">
+                    <div class="header-box">
+                        <!-- CKEditor for the main description -->
+                        <label for="description">Details:</label>
+                        <textarea id="description" class="textarea-control" name="Description"
+                            placeholder="Enter your description..."></textarea>
+                        <script>
+                            CKEDITOR.replace('description', {
+                                extraPlugins: 'codesnippet',
+                                toolbar: [
+                                    { name: 'basicstyles', items: ['Bold', 'Italic'] },
+                                    { name: 'lists', items: ['NumberedList', 'BulletedList'] },
+                                    { name: 'styles', items: ['Format', 'Font', 'FontSize'] },
+                                    { name: 'links', items: ['Link'] },
+                                    { name: 'insert', items: ['Table', 'Image'] },
+                                    { name: 'source', items: ['Source'] },
+                                    { name: 'paragraph', items: ['Blockquote'] },
+                                    { name: 'codesnippet', items: ['CodeSnippet'] }, 
+                                    { name: 'clipboard', items: ['Paste', 'PasteText', 'PasteFromWord'] },  
+                                ],
+                            height:270,
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div style="width: auto; text-align: center; position: relative;">
+                    <button class="btn btn-primary load" type="submit">Post</button>&nbsp;
+                    <input type="reset" value="Reset" class="btn btn-secondary">&nbsp;
+                    <button class="btn btn-danger" onclick="history.back(0)">Cancel</button>
+                </div>
+            </form>
+
+            <!-- pop-up loading -->
+            <div id="loading-overlay">
+                <div id="loading-modal">
+                    <div class="waviy">
+                        <span style="--i:1;color: #273c75;font-size: 70px;font-weight: 500;">c</span>
+                        <span style="--i:2;color: #273c75;">s</span>
+                        <span style="--i:3;color: #273c75;">h</span>
+                        <span style="--i:4;color: #273c75;">a</span>
+                        <span style="--i:5;color: #273c75;">r</span>
+                        <span style="--i:6;color: #273c75;">p</span>
+                        <span style="--i:7;color: rgb(211, 58, 3);font-size: 70px;">a</span>
+                        <span style="--i:8;color:rgb(211, 58, 3);font-size: 70px;">i</span>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+       
+        <div class=" col-sm-6 response-container ">
+            <b class="Text">ANSWER</b>
+            <div class="field-result">
+                {{texts|safe}}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script src="{% static 'js/forum_reply.js' %}"></script>
+<script src="{% static 'js/loader.js' %}"></script>
+
+
+{% endblock %}
