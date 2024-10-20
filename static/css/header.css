@@ -1,0 +1,34 @@
+.custom-navbar{
+    background: #273c75; 
+    color: white;
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-toggler-icon,
+.custom-navbar .nav-link{
+  color: #ffffff; 
+}
+
+.navbar-toggler{
+    background-color:whitesmoke!important;
+}
+
+.active{
+    color: #fff !important;
+    border-radius: 10px;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    margin-top: -6px;
+}
+
+.nav-icon{
+    height: 40px;
+    padding: 5px;
+}
+.navbar-nav{
+    padding-top:5px;
+}
+.nav-link:hover{
+    color:white!important;
+}
+
