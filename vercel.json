@@ -12,9 +12,6 @@
         "dest": "manage.py"
       }
     ],
-    "functions": [
-      "manage.py"
-    ],
     "static": [
       {
         "src": "static/css/(.*)",
