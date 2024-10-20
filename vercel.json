@@ -2,28 +2,39 @@
     "version": 2,
     "builds": [
       {
-        "src": "manage.py",
-        "use": "@vercel/python"
+        "src": "demo/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb" }
+      },
+      {
+        "src": "static/**/*",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
+        {
+            "src": "/static/css/(.*)",
+            "dest": "/static/css/$1"
+        },
+        {
+        "src": "/static/js/(.*)",
+        "dest": "/static/js/$1"
+        },
+        {
+        "src": "/static/media/(.*)",
+        "dest": "/static/media/$1"
+        },
+        {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+        },
       {
-        "src": "/(.*)",
-        "dest": "manage.py"
-      }
-    ],
-    "static": [
-      {
-        "src": "static/css/(.*)",
-        "dest": "static/css/$1"
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
       },
       {
-        "src": "static/js/(.*)",
-        "dest": "static/js/$1"
-      },
-      {
-        "src": "static/media/(.*)",
-        "dest": "static/media/$1"
+        "src": "(.*)",
+        "dest": "demo/wsgi.py"
       }
     ]
   }
